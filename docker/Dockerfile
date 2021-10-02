@@ -7,13 +7,13 @@ WORKDIR /usr/src/app
 RUN npm -g install serve
 
 # Copy application manifest to container.
-COPY ../package.json .
+COPY package.json .
 
 # Install applicaton dependencies.
 RUN npm install
 
 # Copy all application resources to container.
-COPY ../ .
+COPY . .
 
 # Build static files
 RUN npm run build
