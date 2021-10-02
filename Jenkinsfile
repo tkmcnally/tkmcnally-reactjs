@@ -18,7 +18,7 @@ def targetHostPath = getEnvironmentConfig()[2]
 def executeOnRemote(targetHost, commandsList) {
     sshagent (['deploy-to-target']) {
         def commands = commandsList.join(' && ')
-        result = sh returnStdout: true, script: "ssh -o StrictHostKeyChecking=no ${targetHost}@${targetHostPath} '${commands}'"
+        result = sh returnStdout: true, script: "ssh -o StrictHostKeyChecking=no $targetHost@$targetHostPath '${commands}'"
         return result
     }
 }
@@ -34,7 +34,7 @@ pipeline {
             }
             steps {
                 echo "Pulling new code..."
-                executeOnRemote(targetHost, ["cd ${targetHostPath}", "git reset --hard HEAD", "git pull"])
+                executeOnRemote(targetHost, ["cd $targetHostPath", "git reset --hard HEAD", "git pull"])
                 echo "Finished."
             }
         }
@@ -47,7 +47,7 @@ pipeline {
             }
             steps {
                 echo "Building docker images..."
-                executeOnRemote(targetHost, ["cd ${targetHostPath}", "docker-compose down", "docker-compose up -d --build"])
+                executeOnRemote(targetHost, ["cd $targetHostPath", "docker-compose down", "docker-compose up -d --build"])
                 echo "Finished."
             }
         }
