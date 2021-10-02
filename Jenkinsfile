@@ -39,7 +39,7 @@ pipeline {
             }
             steps {
                 echo "Pulling new code..."
-                executeOnRemote(targetHost, ['cd $targetHostPath', "git reset --hard HEAD", "git pull"])
+                executeOnRemote(targetHost, ["cd $targetHostPath", "git reset --hard HEAD", "git pull"])
                 echo "Finished."
             }
         }
