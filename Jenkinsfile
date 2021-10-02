@@ -3,7 +3,7 @@ def getEnvironmentConfig() {
     return [
         host: [
             ip: credentials('jenkins-target-host-ip'),
-            user: credentials('jenkins-target-host-username')
+            user: credentials('jenkins-target-host-username'),
             path: credentials('jenkins-target-host-path')
         ]
     ]
