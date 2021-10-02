@@ -36,7 +36,7 @@ pipeline {
             }
             steps {
                 echo "Pulling new code..."
-                executeOnRemote($TARGETHOST, $TARGETHOSTPATH, ["cd $TARGETHOSTPATH", "git reset --hard HEAD", "git pull"])
+                executeOnRemote($TARGETHOSTUSER, $TARGETHOST, ["cd $TARGETHOSTPATH", "git reset --hard HEAD", "git pull"])
                 echo "Finished."
             }
         }
@@ -47,7 +47,7 @@ pipeline {
             }
             steps {
                 echo "Building docker images..."
-                executeOnRemote(targetHost, ["cd $TARGETHOSTPATH", "docker-compose down", "docker-compose up -d --build"])
+                executeOnRemote($TARGETHOSTUSER, $TARGETHOST, ["cd $TARGETHOSTPATH", "docker-compose down", "docker-compose up -d --build"])
                 echo "Finished."
             }
         }
