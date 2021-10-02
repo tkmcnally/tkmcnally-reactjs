@@ -1,3 +1,5 @@
+import groovy.transform.Field
+
 // Environment configuration definitions.
 def getEnvironmentConfig() {
     return [
@@ -10,8 +12,11 @@ def getEnvironmentConfig() {
 }
 
 // Assigning the targetHost for execution.
+@Field
 def targetHost = getEnvironmentConfig()[0]
+@Field
 def targetHostUser = getEnvironmentConfig()[1]
+@Field
 def targetHostPath = getEnvironmentConfig()[2]
 
 // Execute remote ssh commands on targetHost.
@@ -34,7 +39,7 @@ pipeline {
             }
             steps {
                 echo "Pulling new code..."
-                executeOnRemote(targetHost, ["cd $targetHostPath", "git reset --hard HEAD", "git pull"])
+                executeOnRemote(targetHost, ['cd $targetHostPath', "git reset --hard HEAD", "git pull"])
                 echo "Finished."
             }
         }
