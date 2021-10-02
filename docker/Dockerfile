@@ -1,9 +1,6 @@
 FROM node:16
 ENV NODE_ENV=production
 
-RUN groupmod -g ${GROUP_ID} node \
-  && usermod -u ${USER_ID} -g ${GROUP_ID} node
-
 # Create app directory
 WORKDIR /usr/src/app
 
