@@ -12,9 +12,15 @@ def getEnvironmentConfig() {
 // Execute remote ssh commands on targetHost.
 def executeOnRemote(targetHostUser, targetHost, commandsList) {
     sshagent (credentials: ['jenkins-target-host-ssh-key']) {
+        environment {
+            // Assigning the targetHost for execution.
+            TARGETHOST = credentials('jenkins-target-host-ip')
+            TARGETHOSTUSER = credentials('jenkins-target-host-username')
+            TARGETHOSTPATH = credentials('jenkins-target-host-path')
+        }
         def commands = commandsList.join(' && ')
-        echo 'ssh -v -o StrictHostKeyChecking=no $targetHostUser@$targetHost' + " '${commands}'"
-        result = sh returnStdout: true, script: 'ssh -v -o StrictHostKeyChecking=no $targetHostUser@$targetHost' + " '${commands}'"
+        echo 'ssh -v -o StrictHostKeyChecking=no $TARGETHOSTUSER@$TARGETHOST' + " '${commands}'"
+        result = sh returnStdout: true, script: 'ssh -v -o StrictHostKeyChecking=no $TARGETHOSTUSER@$TARGETHOST' + " '${commands}'"
         return result
     }
 }
