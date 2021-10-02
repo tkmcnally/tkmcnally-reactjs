@@ -1,4 +1,5 @@
 FROM node:16
+ENV NODE_ENV=production
 
 # Create app directory
 WORKDIR /usr/src/app
@@ -7,16 +8,13 @@ WORKDIR /usr/src/app
 RUN npm -g install serve
 
 # Copy application manifest to container.
-COPY package.json .
+COPY ["package.json", "package-lock.json*", "./"]
 
 # Install applicaton dependencies.
-RUN npm install
+RUN npm install --production
 
 # Copy all application resources to container.
 COPY . .
-
-# Build static files
-RUN npm run build
 
 # Serve /usr/src/app on port 3001.
 CMD [ "serve", "-s", "build", "-l", "3001" ]
