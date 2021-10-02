@@ -23,9 +23,9 @@ pipeline {
     agent any
     environment {
         // Assigning the targetHost for execution.
-        TARGETHOST = getEnvironmentConfig()[0]
-        TARGETHOSTUSER = getEnvironmentConfig()[1]
-        TARGETHOSTPATH = getEnvironmentConfig()[2]
+        TARGETHOST = credentials('jenkins-target-host-ip')
+        TARGETHOSTUSER = credentials('jenkins-target-host-username')
+        TARGETHOSTPATH = credentials('jenkins-target-host-path')
     }
 
     stages {
