@@ -1,5 +1,3 @@
-import groovy.transform.Field
-
 // Environment configuration definitions.
 def getEnvironmentConfig() {
     return [
@@ -10,14 +8,6 @@ def getEnvironmentConfig() {
         ]
     ]
 }
-
-// Assigning the targetHost for execution.
-@Field
-def targetHost = getEnvironmentConfig()[0]
-@Field
-def targetHostUser = getEnvironmentConfig()[1]
-@Field
-def targetHostPath = getEnvironmentConfig()[2]
 
 // Execute remote ssh commands on targetHost.
 def executeOnRemote(targetHost, commandsList) {
@@ -31,6 +21,13 @@ def executeOnRemote(targetHost, commandsList) {
 // Main pipeline definition.
 pipeline {
     agent any
+    environment {
+        // Assigning the targetHost for execution.
+        def targetHost = getEnvironmentConfig()[0]
+        def targetHostUser = getEnvironmentConfig()[1]
+        def targetHostPath = getEnvironmentConfig()[2]
+    }
+
     stages {
         // Checkout latest code from GIT - master branch.
         stage('Checkout Code from GIT') {
@@ -43,8 +40,6 @@ pipeline {
                 echo "Finished."
             }
         }
-
-
         // Build docker images and start them.
         stage('Docker Compose and Run') {
             when {
