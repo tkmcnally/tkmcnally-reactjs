@@ -113,6 +113,8 @@ export const ScrollLink = styled.div`
   align-items: center;
   font-size: 1.3rem;
   color: #f6f6f6;
+  text-decoration: none !important;
+    list-style-type: none;
 
   img {
     height: 35px;

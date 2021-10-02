@@ -63,7 +63,7 @@ function Dropdown({ isOpen, toggle }) {
       <NavMenu>
         <NavLink
           onClick={toggle}
-          className="menu-item"
+          className="menu-item text-decoration-none"
           to="projects"
           smooth={true}
         >
@@ -71,7 +71,7 @@ function Dropdown({ isOpen, toggle }) {
         </NavLink>
         <NavLink
           onClick={toggle}
-          className="menu-item"
+          className="menu-item text-decoration-none"
           to="about"
           smooth={true}
         >
@@ -79,7 +79,7 @@ function Dropdown({ isOpen, toggle }) {
         </NavLink>
         <NavLink
           onClick={toggle}
-          className="menu-item"
+          className="menu-item text-decoration-none"
           to="contact"
           smooth={true}
         >
@@ -89,7 +89,7 @@ function Dropdown({ isOpen, toggle }) {
       <NavBtn onClick={toggle}>
         <a
           className="btn PrimaryBtn"
-          href="https://github.com/gurupawar/"
+          href="https://github.com/tkmcnally/"
           target="_blank"
           rel="noopener noreferrer"
         >

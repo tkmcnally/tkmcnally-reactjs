@@ -1,38 +1,89 @@
+import {
+  imageSpring,
+  imageHybris,
+  imageJenkins,
+  imageGit,
+  imageSwift,
+  imageBootstrap,
+  imageJavaScript,
+  imageCSS3,
+  imageHtml5,
+  imageJava,
+  imageReact,
+  imageAkamai,
+  imageCloudflare,
+  imageAnagramSolver,
+  imageQuizter,
+  imageDTA,
+  imageAna1,
+  imageAna2,
+  imageAna3,
+  imageAna4,
+  imageAna5,
+  imageAnaCover,
+  imageDTA1,
+  imageDTA2,
+  imageDTA3,
+  imageDTA4,
+  imageDTA5,
+  imageDTA6,
+  imageDTA7,
+  imageDTA8,
+  imageDTACover,
+} from '../Assets';
+
 // --------------------------------------- Project List
 export const ProjectList = [
   {
-    img: "https://gurupawar.github.io/portfolio/assets/project_1.png",
-    title: "Spense",
-    description: "Codewell challenge, Spense is a landing page for writers.",
-    tech_stack: "Html, Css, Javascript",
-    github_url: "https://github.com/gurupawar/spense",
-    demo_url: "https://gurupawar.github.io/spense/",
+    img: imageAnagramSolver,
+    title: "ANAGRAM SOLVER",
+    description: "'Anagram Solver' is an application used to automatically create all possible word-game 'legal' anagrams for a given input. This application is useful for games like Scrabble, Words with Friends, etc...",
+    long_description: [
+        {desc: "Anagram Solver' is an application used to automatically create all possible word-game 'legal' anagrams for a given input. This application is useful for games like Scrabble, Words with Friends, etc..."},
+        {desc: "The result set of possible anagrams are sorted alphabetically and by size. To view the definition of a given word, you simply click it and the definition is retrieved from a third party webservice."},
+    ],
+    images: [
+      {src: imageAna1},
+      {src: imageAna2},
+      {src: imageAna3},
+      {src: imageAna4},
+      {src: imageAna5},
+    ],
+    cover_image: imageAnaCover,
+    tech_stack: "C, Swift",
+    github_url: "https://github.com/tkmcnally/AnagramSolver-IOS",
   },
   {
-    img: "https://gurupawar.github.io/portfolio/assets/project_2.png",
-    title: "Fiber",
-    description:
-      "An online portfolio generator. Great to practice flex/grid layouts, absolute positioning and sliders.",
-    tech_stack: "Html, Css, Javascript",
-    github_url: "https://github.com/gurupawar/fiber",
-    demo_url: "https://gurupawar.github.io/fiber/",
+    img: imageQuizter,
+    title: "QUIZTER",
+    description: "An Android social-network based trivia game. Learn more about your friends' interests and personalities as you complete their quizzes!",
+    long_description: [],
+    images: [],
+    cover_image: "",
+    tech_stack: "Java, Groovy",
+    github_url: "https://github.com/tkmcnally/Quizter",
+    demo_url: "http://quizter.tkmcnally.com/",
   },
   {
-    img: "https://gurupawar.github.io/portfolio/assets/portfolio.png",
-    title: "Portfolio",
-    description: "Ofcourse i made my own personal portfolio website.",
-    tech_stack: "Reactjs, Css",
-    github_url: "https://github.com/gurupawar/portfolio-react",
-    demo_url: "https://gportfolio.vercel.app/",
-  },
-  {
-    img: "https://gurupawar.github.io/portfolio/assets/project_3.png",
-    title: "Ecommerce website",
-    description:
-      "Created simple ecommerce website using reactjs and react-use-cart plugin.",
-    tech_stack: "Reactjs, Css",
-    github_url: "https://github.com/gurupawar/ecommerce-react-app",
-    demo_url: "https://ecommerce-react-app.vercel.app/",
+    img: imageDTA,
+    title: "DEFEND THE APPLE",
+    description: "Defend the Apple is marathon-based game, where the player must tap-to-kill as many flies on screen as possible before the Apple has been eaten.",
+    long_description: [
+      {desc: "Anagram Solver' is an application used to automatically create all possible word-game 'legal' anagrams for a given input. This application is useful for games like Scrabble, Words with Friends, etc..."},
+      {desc: "The result set of possible anagrams are sorted alphabetically and by size. To view the definition of a given word, you simply click it and the definition is retrieved from a third party webservice."},
+    ],
+    images: [
+      {src: imageDTA1},
+      {src: imageDTA2},
+      {src: imageDTA3},
+      {src: imageDTA4},
+      {src: imageDTA5},
+      {src: imageDTA6},
+      {src: imageDTA7},
+      {src: imageDTA8},
+    ],
+    cover_image: imageDTACover,
+    tech_stack: "JavaFX",
   },
 ];
 
@@ -40,31 +91,55 @@ export const ProjectList = [
 
 export const stackList = [
   {
-    img: "https://gurupawar.github.io/portfolio/assets/skill/html5.svg",
-    name: "HTML",
+    img: imageJava,
+    name: "Java",
   },
   {
-    img: "https://gurupawar.github.io/portfolio/assets/skill/css3.svg",
-    name: "CSS",
+    img: imageSpring,
+    name: "Spring",
   },
   {
-    img: "https://gurupawar.github.io/portfolio/assets/skill/javascript.svg",
-    name: "JavaScript",
+    img: imageHybris,
+    name: "Hybris",
   },
   {
-    img: "https://gurupawar.github.io/portfolio/assets/skill/bootstrap.svg",
-    name: "Bootstrap",
-  },
-  {
-    img: "https://gurupawar.github.io/portfolio/assets/skill/sass.svg",
-    name: "Scss",
-  },
-  {
-    img: "https://gurupawar.github.io/portfolio/assets/skill/git.svg",
+    img: imageGit,
     name: "Git",
   },
   {
-    img: "https://gurupawar.github.io/portfolio/assets/skill/responsive.svg",
-    name: "Responsive",
+    img: imageJenkins,
+    name: "Jenkins",
   },
+  {
+    img: imageHtml5,
+    name: "HTML",
+  },
+  {
+    img: imageCSS3,
+    name: "CSS",
+  },
+  {
+    img: imageJavaScript,
+    name: "JavaScript",
+  },
+  {
+    img: imageBootstrap,
+    name: "Bootstrap",
+  },
+  {
+    img: imageAkamai,
+    name: "Akamai",
+  },
+  {
+    img: imageCloudflare,
+    name: "Cloudflare",
+  },
+  {
+    img: imageSwift,
+    name: "Swift",
+  },
+  {
+    img: imageReact,
+    name: "React"
+  }
 ];

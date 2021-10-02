@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import Dropdown from "../Dropdown/Dropdown";
 import Header from "../Header/Header";
+import imgScrollDown from "../../Assets/scroll-down.svg";
+import thomas from "../../Assets/thomas.png";
+
 import {
   HeroContainer,
   HeroWrapper,
@@ -23,24 +26,24 @@ function Hero() {
       <HeroContainer>
         <HeroWrapper>
           <HeroLeft>
-            <h1>Hi, I'm Gurushesh</h1>
-            <h5>Frontend Developer</h5>
+            <h1>Hi, I'm Thomas</h1>
+            <h5>Solutions Architect</h5>
             <p>
-              I design and code beautifully simple things, and I love what I do.
+              I strategize, design, and implement creative solutions. <br/>I love what I do.
             </p>
           </HeroLeft>
           <HeroRight>
             <Image
-              src="https://gurupawar.github.io/portfolio/assets/man-svgrepo-com.svg"
+              src={thomas}
               alt="man-svgrepo"
             />
           </HeroRight>
         </HeroWrapper>
         <ScrollDown to="projects">
-          <ScrollLink>
+          <ScrollLink className="scroll-down">
             Scroll down
             <img
-              src="https://raw.githubusercontent.com/gurupawar/portfolio/main/assets/scroll-down.svg"
+              src={imgScrollDown}
               alt="scroll-down"
             />
           </ScrollLink>

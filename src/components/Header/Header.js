@@ -1,5 +1,9 @@
 import React from "react";
-import { Nav, Logo, NavLink, Bars, NavMenu, NavBtn } from "./HeaderElements";
+import { Nav, Logo, NavLink, Bars, NavMenu } from "./HeaderElements";
+
+
+import logo from "../../Assets/home-icon.png";
+
 
 const Header = ({ toggle }) => {
   return (
@@ -7,31 +11,21 @@ const Header = ({ toggle }) => {
       <Nav>
         <Logo to="/">
           <img
-            src="https://gurupawar.github.io/portfolio/assets/logo.png"
+            src={logo}
             alt="logo"
           />
         </Logo>
         <NavMenu>
-          <NavLink className="menu-item" to="projects" smooth={true}>
+          <NavLink className="menu-item text-decoration-none" to="projects" smooth={true}>
             Projects
           </NavLink>
-          <NavLink className="menu-item" to="about" smooth={true}>
+          <NavLink className="menu-item text-decoration-none" to="about" smooth={true}>
             About
           </NavLink>
-          <NavLink className="menu-item" to="contact" smooth={true}>
+          <NavLink className="menu-item text-decoration-none" to="contact" smooth={true}>
             Contact
           </NavLink>
         </NavMenu>
-        <NavBtn>
-          <a
-            className="btn PrimaryBtn"
-            href="https://github.com/gurupawar/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Resume
-          </a>
-        </NavBtn>
         <Bars onClick={toggle} />
       </Nav>
     </div>

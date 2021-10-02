@@ -16,9 +16,7 @@ body {
 }
 
 main {
-  background: #151418;
-  background-image: url(https://raw.githubusercontent.com/gurupawar/portfolio/main/assets/blob-haikei.svg);
-  background-repeat: no-repeat;
+  background: #151418 url(./Assets/blob-haikei.svg) no-repeat;
   background-size: cover;
   width: 100%;
 }
@@ -65,28 +63,28 @@ video {
 }
 
 .btn {
-  border: 2px solid rgb(57, 134, 250);
-  padding: 10px 1rem;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-  font-weight: 400;
-  outline: none;
+  border: 2px solid rgb(57, 134, 250) !important;
+  padding: 10px 1rem !important;
+  border-radius: 5px !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease-in-out !important;
+  font-weight: 400 !important;
+  outline: none !important;
 }
 
 .PrimaryBtn {
-  background: rgb(57, 134, 250);
-  color: #f6f6f6;
+  background: rgb(57, 134, 250) !important;
+  color: #f6f6f6 !important;
 }
 
 .PrimaryBtn:hover {
-  background: #fff;
-  color: #010606;
+  background: #fff !important;
+  color: #010606 !important;
 }
 
 .SecondarBtn:hover {
-  background: rgb(57, 134, 250);
-  color: #fff;
+  background: rgb(57, 134, 250) !important;
+  color: #fff !important;
 }
 
 .btn2 {
@@ -139,6 +137,42 @@ video {
   margin-top: -1rem;
 }
 
+.responsive-img {
+  width: 90%;
+}
+.project-card-cover {
+  width: 64px;
+  height: 64px;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  transition: .3s ease;
+  opacity: 0.5;
+  background-color: black;
+}
+.btn-github {
+  background: #ffffff !important;
+}
+
+.btn-moreinfo {
+
+}
+
+.scroll-down {
+  border: none;
+  text-decoration: none !important;
+}
+.scroll-down a {
+  color: #010606;
+  border: none;
+  text-decoration: none !important;
+}
 /* ------------------------------------ Media for Container */
 @media (min-width: 576px) {
   .Container {
