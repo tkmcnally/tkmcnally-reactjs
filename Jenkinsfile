@@ -12,12 +12,6 @@ def getEnvironmentConfig() {
 // Execute remote ssh commands on targetHost.
 def executeOnRemote(targetHostUser, targetHost, commandsList) {
     sshagent (credentials: ['jenkins-target-host-ssh-key']) {
-        environment {
-            // Assigning the targetHost for execution.
-            TARGETHOST = credentials('jenkins-target-host-ip')
-            TARGETHOSTUSER = credentials('jenkins-target-host-username')
-            TARGETHOSTPATH = credentials('jenkins-target-host-path')
-        }
         def commands = commandsList.join('; ')
         echo 'ssh -v -o StrictHostKeyChecking=no $TARGETHOSTUSER@$TARGETHOST' + " '${commands}'"
         result = sh returnStdout: true, script: 'ssh -v -o StrictHostKeyChecking=no $TARGETHOSTUSER@$TARGETHOST' + " '${commands}'"
@@ -34,7 +28,6 @@ pipeline {
         TARGETHOSTUSER = credentials('jenkins-target-host-username')
         TARGETHOSTPATH = credentials('jenkins-target-host-path')
     }
-
     stages {
         // Checkout latest code from GIT - master branch.
         stage('Checkout Code from GIT') {
@@ -44,8 +37,6 @@ pipeline {
             steps {
                 echo "Pulling new code..."
                 executeOnRemote("${TARGETHOSTUSER}", "${TARGETHOST}", ["cd ${TARGETHOSTPATH}", "/usr/local/bin/git reset --hard HEAD", "/usr/local/bin/git pull"])
-                //executeOnRemote("${TARGETHOSTUSER}", "${TARGETHOST}", ["cd /volume1/NFS/projects/tkmcnally-reactjs/ && git reset --hard HEAD"])
-
                 echo "Finished."
             }
         }
@@ -56,7 +47,7 @@ pipeline {
             }
             steps {
                 echo "Building docker images..."
-                executeOnRemote("${TARGETHOSTUSER}", "${TARGETHOST}", ["cd ${TARGETHOSTPATH}", "docker-compose down", "docker-compose up -d --build"])
+                executeOnRemote("${TARGETHOSTUSER}", "${TARGETHOST}", ["cd ${TARGETHOSTPATH}", "/usr/local/bin/docker-compose down", "/usr/local/bin/docker-compose up -d --build"])
                 echo "Finished."
             }
         }
