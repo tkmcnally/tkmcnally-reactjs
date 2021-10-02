@@ -18,7 +18,7 @@ def executeOnRemote(targetHostUser, targetHost, commandsList) {
             TARGETHOSTUSER = credentials('jenkins-target-host-username')
             TARGETHOSTPATH = credentials('jenkins-target-host-path')
         }
-        def commands = commandsList.join(' && ')
+        def commands = commandsList.join('; ')
         echo 'ssh -v -o StrictHostKeyChecking=no $TARGETHOSTUSER@$TARGETHOST' + " '${commands}'"
         result = sh returnStdout: true, script: 'ssh -v -o StrictHostKeyChecking=no $TARGETHOSTUSER@$TARGETHOST' + " '${commands}'"
         return result
