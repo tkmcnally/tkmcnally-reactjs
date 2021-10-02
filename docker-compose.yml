@@ -10,5 +10,3 @@ services:
         USER_GID: ${USER_GID}
     ports:
       - "3001:3001"
-    volumes:
-      - ./:/usr/src/app
