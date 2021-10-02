@@ -5,6 +5,9 @@ services:
     build:
       context: ./
       dockerfile: ./docker/Dockerfile
+      args:
+        USER_UID: ${USER_UID}
+        USER_GID: ${USER_GID}
     ports:
       - "3001:3001"
     volumes:
