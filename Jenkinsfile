@@ -47,7 +47,7 @@ pipeline {
             }
             steps {
                 echo "Building docker images..."
-                executeOnRemote($TARGETHOSTUSER}, $TARGETHOST, ["cd ${TARGETHOSTPATH}", "docker-compose down", "docker-compose up -d --build"])
+                executeOnRemote($TARGETHOSTUSER, $TARGETHOST, ["cd ${TARGETHOSTPATH}", "docker-compose down", "docker-compose up -d --build"])
                 echo "Finished."
             }
         }
