@@ -1,4 +1,5 @@
-// Ensure target g
+// Ensure target host has PATH environment variable set. This may require editing sshd_config to permit user environment variables in remote shell.
+// More information: https://superuser.com/questions/48783/how-can-i-pass-an-environment-variable-through-an-ssh-command
 
 // Environment configuration definitions.
 def getEnvironmentConfig() {
@@ -12,7 +13,7 @@ def getEnvironmentConfig() {
 }
 
 // Execute remote ssh commands on targetHost.
-def executeOnRemote(targetHostUser, targetHost, commandsList) {
+def executeOnRemote(commandsList) {
     sshagent (credentials: ['jenkins-target-host-ssh-key']) {
         def commands = commandsList.join('; ')
         echo 'ssh -v -o StrictHostKeyChecking=no $TARGETHOSTUSER@$TARGETHOST' + " '${commands}'"
@@ -38,7 +39,7 @@ pipeline {
             }
             steps {
                 echo "Pulling new code..."
-                executeOnRemote("${TARGETHOSTUSER}", "${TARGETHOST}", ["cd ${TARGETHOSTPATH}", "git reset --hard HEAD", "git pull"])
+                executeOnRemote(["cd ${TARGETHOSTPATH}", "git reset --hard HEAD", "git pull"])
                 echo "Finished."
             }
         }
@@ -49,7 +50,7 @@ pipeline {
             }
             steps {
                 echo "Building docker images..."
-                executeOnRemote("${TARGETHOSTUSER}", "${TARGETHOST}", ["cd ${TARGETHOSTPATH}", "docker-compose down", "docker-compose up -d --build"])
+                executeOnRemote(["cd ${TARGETHOSTPATH}", "docker-compose down", "docker-compose up -d --build"])
                 echo "Finished."
             }
         }
