@@ -10,10 +10,10 @@ def getEnvironmentConfig() {
 }
 
 // Execute remote ssh commands on targetHost.
-def executeOnRemote(targetHost, commandsList) {
+def executeOnRemote(targetHostUser, targetHost, commandsList) {
     sshagent (['deploy-to-target']) {
         def commands = commandsList.join(' && ')
-        result = sh returnStdout: true, script: "ssh -o StrictHostKeyChecking=no $targetHost@$targetHostPath '${commands}'"
+        result = sh returnStdout: true, script: "ssh -o StrictHostKeyChecking=no $targetHostUser@$targetHost '${commands}'"
         return result
     }
 }
@@ -23,9 +23,9 @@ pipeline {
     agent any
     environment {
         // Assigning the targetHost for execution.
-        def targetHost = getEnvironmentConfig()[0]
-        def targetHostUser = getEnvironmentConfig()[1]
-        def targetHostPath = getEnvironmentConfig()[2]
+        TARGETHOST = getEnvironmentConfig()[0]
+        TARGETHOSTUSER = getEnvironmentConfig()[1]
+        TARGETHOSTPATH = getEnvironmentConfig()[2]
     }
 
     stages {
@@ -36,7 +36,7 @@ pipeline {
             }
             steps {
                 echo "Pulling new code..."
-                executeOnRemote(targetHost, ["cd $targetHostPath", "git reset --hard HEAD", "git pull"])
+                executeOnRemote($TARGETHOST, $TARGETHOSTPATH, ["cd $TARGETHOSTPATH", "git reset --hard HEAD", "git pull"])
                 echo "Finished."
             }
         }
@@ -47,7 +47,7 @@ pipeline {
             }
             steps {
                 echo "Building docker images..."
-                executeOnRemote(targetHost, ["cd $targetHostPath", "docker-compose down", "docker-compose up -d --build"])
+                executeOnRemote(targetHost, ["cd $TARGETHOSTPATH", "docker-compose down", "docker-compose up -d --build"])
                 echo "Finished."
             }
         }
