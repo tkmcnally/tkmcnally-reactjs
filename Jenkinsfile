@@ -38,7 +38,7 @@ pipeline {
             steps {
                 echo "Pulling new code..."
                 //executeOnRemote("${TARGETHOSTUSER}", "${TARGETHOST}", ["cd ${TARGETHOSTPATH}", "git reset --hard HEAD", "git pull"])
-                executeOnRemote("${TARGETHOSTUSER}", "${TARGETHOST}", ["cd /volume1/NFS/project/tkmcnally-reactjs/ && git reset --hard HEAD"])
+                executeOnRemote("${TARGETHOSTUSER}", "${TARGETHOST}", ["cd /volume1/NFS/projects/tkmcnally-reactjs/ && git reset --hard HEAD"])
 
                 echo "Finished."
             }
