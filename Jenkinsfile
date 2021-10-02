@@ -13,8 +13,8 @@ def getEnvironmentConfig() {
 def executeOnRemote(targetHostUser, targetHost, commandsList) {
     sshagent (credentials: ['jenkins-target-host-ssh-key']) {
         def commands = commandsList.join(' && ')
-        echo 'ssh -v -o StrictHostKeyChecking=no $targetHostUser@$targetHost \'${commands}\''
-        result = sh returnStdout: true, script: 'ssh -v -o StrictHostKeyChecking=no $targetHostUser@$targetHost \'${commands}\''
+        echo 'ssh -v -o StrictHostKeyChecking=no $targetHostUser@$targetHost \'$commands\''
+        result = sh returnStdout: true, script: 'ssh -v -o StrictHostKeyChecking=no $targetHostUser@$targetHost \'$commands\''
         return result
     }
 }
