@@ -21,6 +21,13 @@ main {
   width: 100%;
 }
 
+.main-bottom {
+  background: url(./Assets/blob-haikei-bottom.svg) no-repeat;
+  background-size: cover;
+  width: 100%;
+  min-height: 25vw;
+}
+
 a {
   text-decoration: none;
   color: inherit;
