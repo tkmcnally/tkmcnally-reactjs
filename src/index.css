@@ -21,11 +21,21 @@ main {
   width: 100%;
 }
 
+.footer {
+  background: url(./Assets/footer_wave.svg) no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 250px;
+  position: relative;
+}
+
 .main-bottom {
   background: url(./Assets/blob-haikei-bottom.svg) no-repeat;
   background-size: cover;
   width: 100%;
   min-height: 25vw;
+  border: none;
+  margin: 0;
 }
 
 a {
@@ -181,9 +191,9 @@ video {
   text-decoration: none !important;
 }
 
-.modal-90w {
-  width: 90vw !important;
-  max-width: 90vw !important;
+.modal-95w {
+  width: 95vw !important;
+  max-width: 95vw !important;
 }
 
 /* ------------------------------------ Media for Container */

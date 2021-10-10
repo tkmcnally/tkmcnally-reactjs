@@ -20,7 +20,7 @@ function ProjectCard() {
         <Card key={index}>
           <CardLeft>
             <img onClick={() => {list.images.length ? handleShow(index) : window.location=list.demo_url}} src={list.img} alt={list.title} />
-            <Modal show={show === index} onHide={handleClose} dialogClassName="modal-90w container">
+            <Modal show={show === index} onHide={handleClose} dialogClassName="modal-95w container">
               <Modal.Header closeButton>
                 <Modal.Title>{list.title}</Modal.Title>
               </Modal.Header>
@@ -32,18 +32,18 @@ function ProjectCard() {
                 </Row>
                 <Row className={"col-lg-6 offset-lg-3"}>
                     {list.images.map(function (image, index1) {
-                      return <Col key={index1} md={4} className={"mt-2"}>
+                      return <Col key={index1} md={4} className={"mt-2 d-flex justify-content-center"}>
                         <img alt="" className="responsive-img" src={image.src}/>
                       </Col>;
                       })
                     }
-                  <Row className={"mt-4"}>
+                </Row>
+                  <Row className={"mt-4 px-3"}>
                     {list.long_description.map(function (description, index1) {
                         return <p key={index1}>{description.desc}</p>;
                       })
                     }
                   </Row>
-                </Row>
               </Modal.Body>
               <Modal.Footer className={"d-flex justify-content-center"}>
                 <Button variant="primary" onClick={() => setShow(true)} centered>
