@@ -182,12 +182,12 @@ video {
 }
 
 .scroll-down {
-  border: none;
+  border: none !important;
   text-decoration: none !important;
 }
 .scroll-down a {
-  color: #010606;
-  border: none;
+  color: #000 !important;
+  border: none !important;
   text-decoration: none !important;
 }
 
@@ -197,6 +197,11 @@ video {
 }
 
 /* ------------------------------------ Media for Container */
+@media (max-width: 575px ) {
+  ol, ul {
+    padding-left: 0 !important;
+  }
+}
 @media (min-width: 576px) {
   .Container {
     max-width: 540px;

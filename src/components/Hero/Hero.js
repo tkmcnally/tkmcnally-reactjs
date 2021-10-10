@@ -39,7 +39,7 @@ function Hero() {
             />
           </HeroRight>
         </HeroWrapper>
-        <ScrollDown to="projects">
+        <ScrollDown to="projects" className={"scroll-down"}>
           <ScrollLink className="scroll-down">
             Scroll down
             <img
