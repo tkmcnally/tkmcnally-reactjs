@@ -173,6 +173,12 @@ video {
   border: none;
   text-decoration: none !important;
 }
+
+.modal-90w {
+  width: 90vw !important;
+  max-width: 90vw !important;
+}
+
 /* ------------------------------------ Media for Container */
 @media (min-width: 576px) {
   .Container {

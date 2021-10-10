@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { ProjectList } from "../../../data/ProjectData";
-import {Col, Modal, Row} from "react-bootstrap";
+import {Button, Col, Modal, Row} from "react-bootstrap";
 import {
   Card,
   CardLeft,
@@ -20,11 +20,11 @@ function ProjectCard() {
         <Card key={index}>
           <CardLeft>
             <img onClick={() => {list.images.length ? handleShow(index) : window.location=list.demo_url}} src={list.img} alt={list.title} />
-            <Modal show={show === index} fullscreen={true} onHide={handleClose} dialogClassName="modal-70w" aria-labelledby="example-custom-modal-styling-title">
+            <Modal show={show === index} onHide={handleClose} dialogClassName="modal-90w container">
               <Modal.Header closeButton>
                 <Modal.Title>{list.title}</Modal.Title>
               </Modal.Header>
-              <Modal.Body >
+              <Modal.Body className>
                 <Row>
                   <Col className="d-flex justify-content-center">
                     <img alt="" className="mt-2 mb-2" src={list.cover_image} width="64" height="64"/>
@@ -45,6 +45,11 @@ function ProjectCard() {
                   </Row>
                 </Row>
               </Modal.Body>
+              <Modal.Footer className={"d-flex justify-content-center"}>
+                <Button variant="primary" onClick={() => setShow(true)} centered>
+                  Close
+                </Button>
+              </Modal.Footer>
             </Modal>
           </CardLeft>
           <CardRight>
