@@ -43,6 +43,17 @@ pipeline {
                 echo "Finished."
             }
         }
+        // Build packages using NPM.
+        stage('Re-build packages with NPM') {
+                    when {
+                        expression { params['Execute build process via NPM'] == true }
+                    }
+                    steps {
+                        echo "Building packages..."
+                        executeOnRemote(["cd ${TARGETHOSTPATH}", "npm run build"])
+                        echo "Finished."
+                    }
+                }
         // Build docker images and start them.
         stage('Docker Compose and Run') {
             when {
